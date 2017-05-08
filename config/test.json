@@ -1,0 +1,10 @@
+{
+  "appenders":[{
+    "type":"logLevelFilter",
+    "level":"DEBUG",
+    "category":"system",
+    "appender":{
+      "type":"console"
+    }
+  }]
+}

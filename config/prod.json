@@ -1,0 +1,10 @@
+{
+  "appenders":[{
+    "type":"logLevelFilter",
+    "level":"INFO",
+    "category":"system",
+    "appender":{
+      "type":"console"
+    }
+  }]
+}

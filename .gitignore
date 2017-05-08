@@ -2,6 +2,7 @@
 .idea/
 node_modules/
 public/dist/
+profile/*.json
 npm-debug.log
 yarn-error.log
-
+/config/local.json
