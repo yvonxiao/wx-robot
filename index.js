@@ -17,7 +17,7 @@ var letRobotWork = 1;
 bot.on('scan',(url,code)=>{
         logger.info(`Scan QR Code to login: ${code}\n${url}`)
         if (!/201|200/.test(String(code))) {
-            notify(url,'need login');
+            notify('wx-robot%20scan','![logo]('+url+')');
         }
     }).on('login',user => {
         logger.info(`User ${user.name()} logined`);
@@ -25,7 +25,7 @@ bot.on('scan',(url,code)=>{
     .on('error',e=>{
         logger.error(e);
         bot.say('error:'+e.message);
-        notify(e.message);
+        notify('wx-robot%20error',e.message);
     })
     .on('logout',user => logger.info(`${user.name()} logouted`))
     .on('message',m => {
@@ -76,7 +76,7 @@ bot.on('scan',(url,code)=>{
 
         }catch(e){
             logger.error(e);
-            notify(e.message);
+            notify('wx-robot%20error',e.message);
         }
     });
 bot.init().catch(e=>{
@@ -86,7 +86,7 @@ bot.init().catch(e=>{
 });
 
 function notify(msg,desp){
-    request.get(config.notifyer+'?text='+encodeURIComponent(msg)+'&desp='+(desp?encodeURIComponent(desp):'weixin%20robot'));
+    request.get(config.notifyer+'?text='+msg+'&desp='+desp);
 }
 
 async function collectContacts(){
